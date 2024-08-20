@@ -1,0 +1,7 @@
+{
+  "configuration": "usbstack=arduino,debug=off,sercom4=include",
+  "board": "Seeeduino:samd:seeed_XIAO_m0",
+  "port": "/dev/ttyACM0",
+  "sketch": "school_bell_timer.ino",
+  "output": "/tmp/arduino_build_school_bell_timer/"
+}
