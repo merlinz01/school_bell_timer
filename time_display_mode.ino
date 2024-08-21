@@ -62,6 +62,8 @@ void TimeDisplayMode::displayMode() {
   display.drawRect(0, 0, 128, 64, WHITE);
 }
 
+void TimeDisplayMode::init() { lastSecond = -1; }
+
 void TimeDisplayMode::ok() { ring(); }
 
 void TimeDisplayMode::cancel() { setMode(&menuMode); }
@@ -70,6 +72,12 @@ void TimeDisplayMode::plus() { this->refreshDisplay(); }
 
 void TimeDisplayMode::minus() { this->refreshDisplay(); }
 
-void TimeDisplayMode::loop() { this->refreshDisplay(); }
+void TimeDisplayMode::loop() {
+  int second = rtc.getSecond();
+  if (second != lastSecond) {
+    lastSecond = second;
+    this->refreshDisplay();
+  }
+}
 
 TimeDisplayMode timeDisplayMode;
