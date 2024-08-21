@@ -26,6 +26,8 @@
                 "/home/merlin/.arduino15/packages/Seeeduino/tools/CMSIS-Atmel/1.2.1/CMSIS-Atmel/CMSIS/Device/ATMEL/",
                 "/home/merlin/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/cores/arduino",
                 "/home/merlin/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/variants/XIAO_m0",
+                "/home/merlin/Arduino/libraries/Arduino_Low_Power/src",
+                "/home/merlin/Arduino/libraries/RTCZero/src",
                 "/home/merlin/.arduino15/packages/Seeeduino/hardware/samd/1.8.5/libraries/Wire",
                 "/home/merlin/Arduino/libraries/Adafruit_SSD1306",
                 "/home/merlin/Arduino/libraries/Adafruit_GFX_Library",

@@ -1,4 +1,5 @@
 
+#include <ArduinoLowPower.h>
 #include <Wire.h>
 
 #include "alarms.h"
@@ -12,6 +13,7 @@
 #include "time_display_mode.h"
 
 void setup() {
+  savePower();
   Wire.begin();
   initBuzzer();
   initDisplay();
@@ -27,4 +29,9 @@ void loop() {
   checkButtons();
   current_mode->loop();
   delay(10);
+}
+
+void savePower() {
+  // Disable unused peripherals
+  LowPower.detachAdcInterrupt();
 }
