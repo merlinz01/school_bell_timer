@@ -14,7 +14,7 @@ void checkAlarms() {
   if (current_mode == &alarmsMode) return;
   bool is12h, isPM;
   uint8_t date = rtc.getDate();
-  uint8_t dow = (1 << rtc.getDoW());
+  uint8_t dow = (1 << (rtc.getDoW() - 1));
   uint8_t hour = rtc.getHour(is12h, isPM);
   uint8_t minute = rtc.getMinute();
   for (int i = 0; i < NUM_ALARMS; i++) {

@@ -42,7 +42,7 @@ void TimeDisplayMode::displayMode() {
 
   display.setTextSize(2);
   display.setCursor(5, 36);
-  display.print(daysOfTheWeek[rtc.getDoW()]);
+  display.print(daysOfTheWeek[rtc.getDoW() - 1]);
   display.print(' ');
   bool century;
   display.print(monthsOfTheYear[rtc.getMonth(century)]);

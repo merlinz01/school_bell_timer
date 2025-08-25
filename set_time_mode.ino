@@ -39,7 +39,7 @@ void SetTimeMode::displayMode() {
   display.println(settings.is12Hmode ? "yes" : " no");
 
   display.setCursor(12, 52);
-  display.print(daysOfTheWeek[rtc.getDoW()]);
+  display.print(daysOfTheWeek[rtc.getDoW() - 1]);
   display.print(", ");
   bool century;
   display.print(monthsOfTheYear[rtc.getMonth(century)]);
@@ -103,8 +103,8 @@ void SetTimeMode::plus() {
         saveSettings();
         break;
       case 3:
-        item = rtc.getDoW() + 1;
-        rtc.setDoW(item % 7);
+        item = rtc.getDoW();
+        rtc.setDoW((item % 7) + 1);
         break;
       case 4:
         item = rtc.getMonth(century) + 1;
@@ -149,8 +149,8 @@ void SetTimeMode::minus() {
         saveSettings();
         break;
       case 3:
-        item = rtc.getDoW() - 1;
-        rtc.setDoW(item < 0 ? 6 : item);
+        item = rtc.getDoW();
+        rtc.setDoW(item == 1 ? 7 : item - 1);
         break;
       case 4:
         item = rtc.getMonth(century) - 1;
