@@ -69,16 +69,17 @@ void AlarmsMode::ok() {
   } else if (this->selectedField == 0) {
     settings.alarms[this->selectedAlarm].enabled =
         !settings.alarms[this->selectedAlarm].enabled;
-    saveSettings();
   } else {
     settings.alarms[this->selectedAlarm].weekdays ^=
         (1 << (this->selectedField - 3));
-    saveSettings();
   }
   this->refreshDisplay();
 }
 
-void AlarmsMode::cancel() { setMode(&alarmSelectionMode); }
+void AlarmsMode::cancel() {
+  setMode(&alarmSelectionMode);
+  saveSettings();
+}
 
 void AlarmsMode::plus() {
   if (this->editing) {
