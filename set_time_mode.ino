@@ -125,7 +125,7 @@ void SetTimeMode::plus() {
         break;
     }
   } else {
-    this->selectedField = (this->selectedField + 6) % 7;
+    this->selectedField = (this->selectedField + 1) % 7;
   }
   this->refreshDisplay();
 }
@@ -172,7 +172,7 @@ void SetTimeMode::minus() {
         break;
     }
   } else {
-    this->selectedField = (this->selectedField + 1) % 7;
+    this->selectedField = (this->selectedField + 6) % 7;
   }
   this->refreshDisplay();
 }
