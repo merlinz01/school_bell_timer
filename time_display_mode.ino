@@ -73,6 +73,12 @@ void TimeDisplayMode::plus() { this->refreshDisplay(); }
 void TimeDisplayMode::minus() { this->refreshDisplay(); }
 
 void TimeDisplayMode::loop() {
+  msec += 1;
+  if (msec == 20) {
+    msec = 0;
+  } else {
+    return;
+  }
   int second = rtc.getSecond();
   if (second != lastSecond) {
     lastSecond = second;

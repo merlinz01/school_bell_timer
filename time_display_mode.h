@@ -15,6 +15,7 @@ class TimeDisplayMode : public Mode {
 
  private:
   int lastSecond = -1;
+  int msec = 0;
 };
 
 extern TimeDisplayMode timeDisplayMode;
