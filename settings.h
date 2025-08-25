@@ -2,10 +2,11 @@
 
 #include "alarms.h"
 
-#define VALID_FLAG __TIME__
+#define SETTINGS_ADDRESS 0x10
+#define VALID_FLAG 96
 
 typedef struct {
-  char validFlag[8];
+  char validFlag;
   bool is12Hmode;
   Alarm alarms[NUM_ALARMS];
 } Settings;

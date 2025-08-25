@@ -4,9 +4,9 @@
 Settings settings;
 
 void loadSettings() {
-  mem.get(0, settings);
+  mem.get(SETTINGS_ADDRESS, settings);
   if (settings.validFlag != VALID_FLAG) {
-    memcpy(settings.validFlag, VALID_FLAG, sizeof(settings.validFlag));
+    settings.validFlag = VALID_FLAG;
     settings.is12Hmode = true;
     for (int i = 0; i < NUM_ALARMS; i++) {
       settings.alarms[i].hour = 0;
@@ -18,4 +18,4 @@ void loadSettings() {
   }
 }
 
-void saveSettings() { mem.putChanged(0, settings); }
+void saveSettings() { mem.putChanged(SETTINGS_ADDRESS, settings); }
