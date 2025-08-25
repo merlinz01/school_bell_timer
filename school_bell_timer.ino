@@ -1,6 +1,7 @@
 
 #include <ArduinoLowPower.h>
 #include <Wire.h>
+#include <wdt_samd21.h>
 
 #include "alarms.h"
 #include "buttons.h"
@@ -22,6 +23,7 @@ void setup() {
   initRtc();
   initButtons();
   setMode(&timeDisplayMode);
+  initWatchdog();
 }
 
 void loop() {
@@ -29,9 +31,12 @@ void loop() {
   checkButtons();
   current_mode->loop();
   delay(10);
+  wdt_reset();
 }
 
 void savePower() {
   // Disable unused peripherals
   LowPower.detachAdcInterrupt();
 }
+
+void initWatchdog() { wdt_init(WDT_CONFIG_PER_8K); }
